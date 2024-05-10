@@ -161,16 +161,29 @@ header li a::after{
     height: 3px;
     background-color: #0048aa ;
     position: absolute;
-    transition: all 0.3s;
+    /* transition: all 0.3s; */
     bottom: -5px;
     left: 0;
-    opacity: 0;
+    /* opacity: 0; */
     /* pointer-events: none; */
 }
 
 header li a:hover::after{
-    opacity: 1;
-    width: 100%;
+    /* opacity: 1; */
+    /* width: 100%; */
+    animation: navLine 0.4s forwards ease-out;
+}
+
+@keyframes navLine {
+    0%{
+        width: 0%;
+    }
+    40%{
+        width: 110%;
+    }
+    100%{
+        width: 100%;
+    }
 }
 
 .mobile-nav .ul a{
