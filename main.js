@@ -10,6 +10,7 @@ const mobileIcon = document.querySelector(".mobile-icon");
 const mobileNav = document.querySelector(".mobile-nav");
 const xBtn = document.querySelector(".xbtn");
 const header = document.querySelector("header");
+let offset = 140
 
 const comments = [
 [{
@@ -83,8 +84,10 @@ window.onscroll = function (){
 window.onresize = function (){
     if(window.innerWidth >= 1018){
         header.style.height = "100px";
+        offset = 140
     }
     if(window.innerWidth <= 1018){
+        offset = 90
         if(window.scrollY > 0){
             header.style.height = "60px";
         }
@@ -100,6 +103,13 @@ window.onload = function (){
     if(window.scrollY >= numSection.offsetTop && started == false){
         nums.forEach(num => startCount(num));
         started = true;
+    }
+
+    if(window.innerWidth >= 1018){
+        offset = 140
+    }
+    if(window.innerWidth <= 1018){
+        offset = 90
     }
 }
 
@@ -185,6 +195,10 @@ function previousPage(){
             }
         }
     });
+    window.scroll({
+        top: document.getElementById("comments").offsetTop - offset,
+        behavior: "smooth"
+    });
 };
 
 function nextPage(){
@@ -202,6 +216,10 @@ function nextPage(){
             break;
         }
     }
+    window.scroll({
+        top: document.getElementById("comments").offsetTop - offset,
+        behavior: "smooth"
+    });
 };
 
 mobileIcon.addEventListener("click", function(){

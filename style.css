@@ -28,7 +28,7 @@ ul{
 }
 
 header{
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: space-around;
     /* justify-content: space-between; */
@@ -613,6 +613,7 @@ h3{
     margin-bottom: 50px;
     margin-top: 35px;
     padding: 0;
+    /* transition: all 0.4 ease; */
 }
 
 .comment{
@@ -755,6 +756,7 @@ footer{
 
 @media only screen and (max-width:1018px){
     header{
+        position: fixed;
         height: 74px; 
         padding: 0 50px;
         justify-content: space-between;
@@ -903,22 +905,26 @@ footer{
         margin-bottom: 0;
     }
     .footer-bottom{
-        display: unset;
+        display: block;
         padding: 0;
         margin: 0;
+        padding-bottom: 10px;
     }
-    .footer-bottom span , .footer-bottom p{
+    .footer-bottom :is(span, p) {
         text-align: center;
         margin: 0;
-        padding: 17px;
+        line-height: 1.6;
     }
     .footer-bottom .span-p{
         padding: 0;
     }
     .footer-bottom span{
         cursor: pointer;
-        margin: 0 5px;
+        margin: 0 8px;
         padding: 0;
+    }
+    .footer-bottom p{
+        padding-inline: 20px;
     }
 }
 
@@ -938,6 +944,9 @@ footer{
         margin-top: 5px;
     }
     .mobile-icon{
+        display: flex;
+    }
+    .mobile-nav .btn{
         display: flex;
     }
 
@@ -1015,6 +1024,9 @@ footer{
         line-height: 30px;
     }
 
+    .div5{
+        padding-inline: 20px;
+    }
     .div5 h2{
         margin-top: 20px;
     }
@@ -1053,6 +1065,7 @@ footer{
     .comment-section{
         display: flex;
         margin-bottom: 20px;
+        padding-inline: 0px;
     }
     .comment{
         display: unset;
@@ -1080,25 +1093,9 @@ footer{
         margin: 30px auto;
         margin-bottom: 0;
     }
-    .footer-bottom{
-        display: unset;
-        padding: 0;
-        margin: 0;
-    }
-    .footer-bottom span , .footer-bottom p{
-        text-align: center;
-        margin: 0;
-        padding: 17px;
-    }
-    .footer-bottom .span-p{
-        padding: 0;
-    }
-    .footer-bottom span{
-        cursor: pointer;
-        margin: 0 5px;
-        padding: 0;
-    }
-}@media only screen and (max-width:570px){
+}
+
+@media only screen and (max-width:570px){
     .first-div{
         height: 400px;
     }
