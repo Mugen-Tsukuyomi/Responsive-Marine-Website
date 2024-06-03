@@ -177,6 +177,11 @@ function showComments(){
                 commentSection.innerHTML +=`<div class="comment">${comment.comment}<p class="name">${comment.person}</p><span class="place">${comment.place}</span></div>`;
             });
         }
+        document.querySelectorAll('.comment').forEach((e) => {
+            // forcing browser reflow to make opacity transitioning
+            void e.offsetWidth;
+            e.classList.add("default-opacity");
+        });
     });
 };
 showComments();
